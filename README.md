@@ -10,7 +10,6 @@ Main features:
 * performance - the highest performing CFML engine available;
 * extensibility - Railo is open source, so if you run into an issue you can just download the source and add your own custom patch.
 
-
 Follow the [link](http://ops-docs.jelastic.com/private-add-cartridge) in order to find out how to enable the current cartridge at Jelastic dashboard.
 
 ### What Jelastic cartridge is?
