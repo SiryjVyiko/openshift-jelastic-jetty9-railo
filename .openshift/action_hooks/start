@@ -11,7 +11,7 @@ fi
 memory_total=`free -m | grep Mem | awk '{print $2}'`;
 [ -z "$XMX" ] && { let XMX=memory_total-35; XMX="${XMX}M"; }
 
-CMD="java -Xms${XMS} -Xmx${XMX} -jar start.jar -Djetty.host=$OPENSHIFT_RAILO4j_APP_HOST -Djetty.port=$OPENSHIFT_RAILO4j_APP_PORT ${confresult}";
+CMD="java -Xms${XMS} -Xmx${XMX} -jar start.jar -Djetty.host=$OPENSHIFT_RAILO4j_APP_HOST -Djetty.port=$OPENSHIFT_RAILO4j_APP_PORT ${GC} ${confresult}";
 
 nohup $CMD > $OPENSHIFT_RAILO4j_LOG_DIR/server.log 2>&1 &
 
