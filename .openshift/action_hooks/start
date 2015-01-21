@@ -12,9 +12,6 @@ fi
 memory_total=`free -m | grep Mem | awk '{print $2}'`;
 [ -z "$XMX" ] && { let XMX=memory_total-35; XMX="${XMX}M"; }
 
-max_permgen=$( echo "$OPENSHIFT_GEAR_MEMORY_MB * $JVM_PERMGEN_RATIO" | bc | awk '{print int($1+0.5)}')
-
-
 CMD="java -Xms${XMS} -Xmx${XMX} -Xmn${XMN} -XX:MaxPermSize=256m -jar start.jar -Djetty.host=$OPENSHIFT_RAILO4j_APP_HOST -Djetty.port=$OPENSHIFT_RAILO4j_APP_PORT ${GC} ${confresult}";
 
 nohup $CMD > $OPENSHIFT_RAILO4j_LOG_DIR/server.log 2>&1 &
